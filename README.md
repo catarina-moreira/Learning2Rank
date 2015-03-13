@@ -21,7 +21,7 @@ RankBoost - Contains 2 parameters: the number of iterations and the threshold fo
 
 (based on Constraints)
 Coordinate Ascent - Contains 2 parameters: the number of random restarts and the number of iterations
-
+ 
 General example of usage:
 
 java -jar grid-search.jar SVMrankLinear <path> <c_param> <metric> <num_folds>
