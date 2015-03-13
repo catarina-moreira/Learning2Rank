@@ -41,35 +41,45 @@ RUN SVMRANK LINEAR KERNEL: train a model that searches for the best parameters u
 ######################################################################
 
 	cd examples
- 	java -jar grid-search.jar SVMrankLinear ./experts/ 5 
+ 	java -jar grid-search.jar SVMrankLinear ./example_dataset/SmallRL/SVMLin/ 5 MAP 4 
+	
 
 RUN SVMRANK NON LINEAR KERNEL: train a model that searches for the best parameters until a maximum of 2 in the c parameter and 2 in the g parameter
 ######################################################################
 
 	cd examples
- 	java -jar grid-search.jar SVMrankNonLinear ./experts/ 2 2
+	java -jar grid-search.jar SVMrankNonLinear ./example_dataset/SmallRL/SVMRadial/ 2 2 MAP 4
 
 RUN RANKNET: train a model that searches for the best parameters until a maximum of 10 iterations and at most 2 nodes in the hidden layer
 ######################################################################
 
 	cd examples
-	java -jar grid-search.jar RankNet ./experts/ 10 2
+	java -jar grid-search.jar RankNet ./example_dataset/SmallRL/RankNet/ 2 1 MAP 4
 
 RUN ADARANK: train a model that searches for the best parameters until a maximum of 5 iterations
 ######################################################################
 
 	cd examples
-	java -jar grid-search.jar AdaRank ./experts/ 5
+	java -jar grid-search.jar AdaRank ./example_dataset/SmallRL/AdaRank/ 5 MAP 4
 
 RUN RANKBOOST: train a model that searches for the best parameters until a maximum of 5 iterations and at most 2 weak candidates 
 ######################################################################
 
 	cd examples
-	java -jar grid-search.jar RankBoost ./experts/ 5 2
+	java -jar grid-search.jar RankBoost ./example_dataset/SmallRL/RankBoost/ 2 2 MAP 4
 
 RUN COORDINATE ASCENT: train a model that searches for the best parameters until 5 random restarts and 3 iterations
 ######################################################################
 
 	cd examples
-	java -jar grid-search.jar Coordinate_Ascent ./experts/ 5 3
+	java -jar grid-search.jar Coordinate_Ascent ./example_dataset/SmallRL/CoordAsc/ 2 1 MAP 4
+	
+RUN ADDITIVE GROVES: automatically finds the best parameters
+runs a part from the grid search program
+Usage: ag_train -t _train_set_ -v _validation_set_ -r _attr_file_ [-a _alpha_value_] [-n _N_value_] [-b _bagging_iterations_] [-s slow|fast|layered] [-i _init_random_] [-c rms|roc]
+######################################################################
 
+	./Learning_to_Rank_Algorithms/Additive_Groves/ag_train -t example_dataset/SmallAG/Fold1/trainAG -v example_dataset/SmallAG/Fold1/trainAG -r example_dataset/SmallAG/AGattr_small -s slow
+	
+	perform this for each fold!
+	
